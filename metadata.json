@@ -1,0 +1,8 @@
+{
+  "name": "TOOLSEAL",
+  "description": "AI Agent Runtime Security and Trust Monitoring Platform for MCP & Bifrost Gateway",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

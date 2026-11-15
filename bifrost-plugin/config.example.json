@@ -1,0 +1,35 @@
+{
+  "$schema": "https://www.getbifrost.ai/schema",
+  "plugins": [
+    {
+      "enabled": true,
+      "name": "toolseal-mcp-security",
+      "path": "./bifrost-plugin/build/toolseal_plugin.so",
+      "placement": "pre_builtin",
+      "order": 0,
+      "config": {
+        "toolseal_url": "http://127.0.0.1:3000",
+        "timeout_ms": 3000,
+        "shared_secret_env": "BIFROST_SHARED_SECRET",
+        "agent_id_prefix": "bifrost",
+        "fail_closed": true
+      }
+    }
+  ],
+  "mcp": {
+    "client_configs": [
+      {
+        "id": "mock-weather-mcp",
+        "name": "weather",
+        "connection_type": "stdio",
+        "stdio_config": {
+          "command": "node",
+          "args": ["./bifrost-plugin/mock-mcp-server.mjs"],
+          "envs": []
+        },
+        "tools_to_execute": ["*"],
+        "tools_to_auto_execute": ["*"]
+      }
+    ]
+  }
+}
